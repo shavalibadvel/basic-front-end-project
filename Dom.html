@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>JS Bin</title>
+  </head>
+  <body>
+    <ul class="ul-list">
+      <li>Item - A</li>
+      <li>Item - B</li>
+      <li>Item - C</li>
+      <li>Item - D</li>
+      <li>Item - E</li>
+    </ul>
+    <ul class="list" id="list2">
+      <li>Item - 1</li>
+      <li>Item - 2</li>
+      <li>Item - 3</li>
+      <li>Item - 4</li>
+      <li>Item - 5</li>
+    </ul>
+
+    <ul class="list">
+      <li>Item - a</li>
+      <li>Item - b</li>
+      <li>Item - c</li>
+      <li>Item - d</li>
+      <li>Item - e</li>
+    </ul>
+
+    <ol class="list" id="list3">
+      <li>Item - I</li>
+      <li>Item - II</li>
+      <li>Item - III</li>
+      <li>Item - IV</li>
+      <li id="ol-list-5">
+        <p style="display: none">Hello</p>
+        <p>Item - V</p>
+      </li>
+    </ol>
+
+    <table border="1">
+      <tr>
+        <th>Company</th>
+        <th>Contact</th>
+        <th>Country</th>
+      </tr>
+      <tr class="row">
+        <td>Alfreds Futterkiste</td>
+        <td>Maria Anders</td>
+        <td>Germany</td>
+      </tr>
+      <tr class="row">
+        <td>Centro comercial Moctezuma</td>
+        <td>Francisco Chang</td>
+        <td>Mexico</td>
+      </tr>
+      <tr class="row">
+        <td>Ernst Handel</td>
+        <td>Roland Mendel</td>
+        <td>Austria</td>
+      </tr>
+      <tr id="highlighted" class="row">
+        <td>Island Trading</td>
+        <td>Helen Bennett</td>
+        <td>UK</td>
+      </tr>
+      <tr class="footer">
+        <td>Laughing Bacchus Winecellars</td>
+        <td>Yoshi Tannamuri</td>
+        <td>Canada</td>
+      </tr>
+      <tr class="footer">
+        <td>Magazzini Alimentari Riuniti</td>
+        <td>Giovanni Rovelli</td>
+        <td>Italy</td>
+      </tr>
+    </table>
+
+    <script>
+      //give red background for all ul tags
+
+      const allUlTags = document.getElementsByTagName("ul");
+      //LIST of Node Elements--> [NODE ELEMENT(ul), NODE ELEMENT(ul), NODE ELEMENT(ul)]
+      for (let i = 0; i < allUlTags.length; i++) {
+        allUlTags[i].style.backgroundColor = "pink";
+      }
+
+      //give text color blue for all list class node elements
+      const allListClassEle = document.getElementsByClassName("list");
+
+      //LIST of Node Elements--> [NODE ELEMENT(ul), NODE ELEMENT(ul), NODE ELEMENT(ol)];
+      for (let i = 0; i < allListClassEle.length; i++) {
+        allListClassEle[i].style.color = "blue";
+        allListClassEle[i].style.borderLeft = "3px solid red";
+      }
+
+      const list3 = document.getElementById("list3");
+      //NodeElement(ol)
+      list3.style.fontSize = "20px";
+
+      //prints the content in form of HTML
+      console.log(list3.innerHTML);
+      //only prints all text content irrespective of visibility
+      console.log(list3.textContent);
+
+      console.log(list3.children.length);
+
+      list3.children[2].style.fontSize = "10px";
+
+      //Item - A --> true
+      //Item - z --> false
+      //Item - 10 --> false
+
+      function checkHTMLQuery(query) {
+        const liTags = document.getElementsByTagName("li");
+        for (let i = 0; i < liTags.length; i++) {
+          if (liTags[i].textContent == query) {
+            liTags[i].style.backgroundColor = "yellow";
+            return true;
+          }
+        }
+        return false;
+      }
+
+      console.log(checkHTMLQuery("Item - 5"));
+
+      //const allTableHeads=document.getElementsByTagName("th");
+      const allTableHeads = document.querySelectorAll("th");
+      for (let i = 0; i < allTableHeads.length; i++) {
+        allTableHeads[i].style.fontSize = "20px";
+      }
+
+      //querySelectorAll()--> getElementsByClassName, getElementsByTagName
+
+      //querySelector--> Get first occurance
+
+      //const highlighted=document.getElementById("highlighted");
+      const highlighted = document.querySelector("highlighted");
+      highlighted.style.color = "red";
+
+      const firstRowClassEle = document.querySelector("li");
+      firstRowClassEle.style.fontSize = "20px";
+      firstRowClassEle.style.fontWeight = "bolder";
+    </script>
+  </body>
+</html>
