@@ -314,7 +314,7 @@ const Products = () => {
       return;
     }
   
-    // Check for duplicates only if clicking "ADD TO CART" button
+    // Check for duplicates only if clicking "ADD TO CART" button. ggfytghb
     if (options.preventDuplicate && isItemInCart(items, productId)) {
       enqueueSnackbar(
         "Item already in cart. Use the cart sidebar to update quantity or remove item.",
