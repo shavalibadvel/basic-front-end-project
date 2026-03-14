@@ -11,7 +11,7 @@ class Counter extends React.Component {
     };
     // this.countAdd = this.countAdd.bind(this);
     // this.countSub = this.countSub.bind(this);
-    // this is not needed when we we use arrow functions fuighjkndigyubhjknmsdvluy diuygufbhjklagiyh
+    // this is not needed when we we use arrow functions fuighjkndigyubhjknmsyufdjhiyfhdvluy diuygufbhjklagiyh
   }
   countAdd = () => {
     this.setState((curState, propState) => {
